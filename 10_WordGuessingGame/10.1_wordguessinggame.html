@@ -1,0 +1,54 @@
+<head>
+<title>Word Guessing Game</title>
+<script>
+    //generate random word
+    const words_array = ["stars", "stronghold", "sacriligeous", "barrier", "haunting", "mossy", "influence", "bright", "breeze", "neon", "shadows", "sunlight", "swirl", "lightning", "fourteen", "Raina"]; 
+    var gameWord = words_array[Math.floor(Math.random() * words_array.length)];
+    //show pop-up that shows a blank word
+    var letterCount = gameWord.length;
+    var wordDisplay = "_,".repeat(letterCount);
+
+    document.write(wordDisplay); //temporary
+    //the user's guess
+    var guess = document.getElementById("guess");
+    var rawGuess = guess.value;
+    var userGuess = rawGuess.toLowerCase();
+    const gameWordLetters = gameWord.split('');
+    //check the guess
+    function checkGuess() {
+        if (userGuess.length == 1) {
+            const wordDisplayLetters = wordDisplay.split(',');
+            for (let i = 0; i < (gameWordLetters.length); i++) { 
+                if (userGuess == gameWordLetters[i]) {
+                    wordDisplayLetters[i] = userGuess;
+                }
+            }
+            wordDisplay = gameWordLetters.toString();
+            document.write(wordDisplay);
+        }
+        else if (userGuess.length == letterCount) {
+            const userGuessLetters = userGuess.split('');
+            const wordDisplayLetters = wordDisplay.split (',');
+            for (let i = 0; i < (letterCount); i++) {
+                if (userGuessLetters[i] == gameWordLetters[i]) {
+                    wordDisplayLetters[i] = userGuessLetters[i];
+                }
+            }
+            wordDisplay = wordDisplayLetters.toString();
+            document.write(wordDisplay);
+        }
+
+        //if wrong, count as an incorrect guess
+        //when word is complete and correct, return a victory message
+        //when incorrect guess are maxed out, return a loss message
+    }
+</script>
+</head>
+<body>
+    <h1>Word Guessing Game</h1>
+    <p id="output"></p><br>
+    <input id="guess" type="text" size="10" value = "AbCdEfG"><br>
+	<input type="button" value="Guess" onclick = "checkGuess()"><br>
+	<input id="numberofguesses" type="text" size="60"><br>
+	<input type="button" value="Generate a New Number" onclick="generateNewNumber()"><br>
+</body>

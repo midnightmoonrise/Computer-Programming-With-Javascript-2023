@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--Fix the form-->
+<html>
+<head>
+    <title>Alpine Skiing</title>
+    <link rel="stylesheet" href="8.1_makeawebsite.css">
+    <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'>
+    <script> 
+        alert("If you're a Nordic skier, go away!");
+        function changeImage() {
+            var image = document.getElementById('myImage');
+            if (image.src.match("slgate.webp")) {
+                image.src = "gsgate.jpeg";
+                document.getElementById("caption").innerHTML="A GS course"
+            }
+            else if(image.src.match("gsgate.jpeg")) {
+                image.src = "supergcourse.jpeg";
+                document.getElementById("caption").innerHTML="A Super-G course"
+            }
+            else if(image.src.match("supergcourse.jpeg")) {
+                image.src = "downhillcourse.jpeg";
+                document.getElementById("caption").innerHTML="A downhill course"
+            }
+            else {
+                image.src = "slgate.webp";
+                document.getElementById("caption").innerHTML="A slalom course"
+            }
+        }
+
+        var theNumber = 88;
+        var amountOfGuesses = 0;
+        function guesscounter () {
+			var numberofguesses = document.getElementById("numberofguesses");
+			amountOfGuesses=amountOfGuesses + 1;
+			numberofguesses.value="You have used " + amountOfGuesses + " guesses.";
+		}
+        function checkguess() {
+			var guess = document.getElementById("guess");
+			var guessValue = guess.value;
+			var output = document.getElementById("output");
+			if (guessValue < theNumber) {
+                guesscounter();
+                guess.value="";
+                output.value="Guess higher!";
+            }
+			else if (guessValue == theNumber) {
+				guesscounter();
+                guess.value="";
+				output.value = "Yes, she has 88 wins as of the end of the 2022-23 season.";
+			}
+			else if (guessValue > theNumber) {
+				guesscounter();
+                guess.value="";
+				output.value = "Guess lower!";
+			}
+			else {
+                guess.value="";
+				output.value = "User cancelled the prompt.";
+			}
+		    }
+    </script>
+</head>
+<body class="centered">
+    <div class="header"><h1 style="color:white">Alpine Skiing</h1></div>
+    <br>
+    <br>
+	<button onclick="displayDate()" class="nicebutton">Click me for the date and time!</button>
+    <p id="date"></p>
+    <script>
+        function displayDate() {
+        document.getElementById("date").innerHTML = Date();
+        }
+    </script>
+    <table class="table">
+        <tr>
+            <td><img src="https://www.teamusa.org/-/media/TeamUSA/AlpineSkiing/Shiffrin_Mikaela/2021/shiffrin_mikaela_112121_1440x810_Updated.png" class="tableimage"></td>
+            <td><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Iver_Bjerkestrand_giant_slalom_Norway_2011.jpg" class="tableimage"></td>
+            <td><img src="https://cdn.cnn.com/cnnnext/dam/assets/190116142946-wengen-downhill-skiing-world-cup-3-super-tease.jpg" class="tableimage"></td>
+        </tr>
+        <tr>
+            <td>Mikaela Shiffrin skiing slalom</td>
+            <td>Someone skiing giant slalom</td>
+            <td>A downhill jump</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.teamusa.org/-/media/TeamUSA/AlpineSkiing/Shiffrin_Mikaela/2021/shiffrin_mikaela_112121_1440x810_Updated.png">Source</a></td>
+            <td><a href="https://upload.wikimedia.org/wikipedia/commons/c/c1/Iver_Bjerkestrand_giant_slalom_Norway_2011.jpg">Source</a></td>
+            <td><a href="https://cdn.cnn.com/cnnnext/dam/assets/190116142946-wengen-downhill-skiing-world-cup-3-super-tease.jpg">Source</a></td>
+        </tr>
+    </table>
+    <p>Alpine skiing is a winter sport involving, according to Ben Juo, "speeding down the mountain at
+        40 miles per hour on two slices of tree." It involves skiing down a course (correctly) - determined by gates - red or blue plastic poles/gates - as fast as possible. It is much better than nordic skiing, which is pretty much 
+        track on skis. I enjoy alpine skiing for the stress relief it gives when you slam the first slalom gate down, 
+        and for the lovely purple bruises you get when you whack GS gates down, even if you have protective equipment on. 
+        Also, though you race individually, you train with a team, and that tends to be really fun. 
+    </p>
+    <p>
+        There are 4 main disciplines for alpine skiing, going from shortest ski length to longest: Slalom (the one with the pole-like gates), Giant Slalom, Super-G, and Downhill (with the jumps!). Click the image below to see a course for each.
+    </p>
+
+    <img class="greatimage" id="myImage" onclick="changeImage()" src="slgate.webp">
+    <p id="caption">A slalom course</p>
+    <h3>Equipment</h3>
+    <div class="container">
+        <ul class="list"> 
+          <li>Race skis for every discipline you race in, of the right length</li>
+          <li>Poles - straight ones for slalom, bent for anything else</li>
+          <li>A race suit if you're racing</li>
+          <li>Goggles</li>
+          <li>Properly fitted ski boots with the appropriate flex</li>
+          <li>Gloves</li>
+          <li>An FIS approved hard-eared helmet (can get a separate soft-eared one for slalom)</li>
+          <li>Gate guards for slalom</li>
+          <li>Shin guards for slalom</li>
+          <li>A chin bar for slalom; make sure it fits your helmet</li>
+        </ul>
+    </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Fo589eRtlU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+    <p>Mikaela Shiffrin skiing slalom, but video</p><br>
+    <audio controls>
+        <source src="ski.mp3" type="audio/mp3"> 
+    </audio><br>
+    <p>The sound of someone (me) skiing slalom</p>
+    <form>
+        <h3>Guess how many World Cup wins does Mikaela Shiffrin has?</h3>
+        <input id="guess" type="text" size="10"><br>
+        <input type="button" class="nicebutton" value="Guess" onclick="checkguess()"><br>
+        <input id="output" type="text" size="60"><br>
+        <input id="numberofguesses" type="text" size="60"><br>
+        </form>
+    <br>
+    <div class="formbox"><form>
+        <h3>Sign up here for the newsletter!</h3>
+        <label id="name" name="name">Name</p>
+        <input type="text" id="name" name="name"><br>
+        <label id="email" name="email">Email</p>
+        <input type="text" id="email" name="email"><br>
+        <input type="submit" value="Submit" class="nicebutton" action-page="8.1_makeawebsite.html">
+    </form></div></div>
+    <br>
+    <br>
+    <button class="nicebutton"><a class="buttonlink" href="https://usskiandsnowboard.org" target="_blank">The Official US Ski and Snowboard Site</a></button>
+    <br>
+    <br>
+    <div class="footer">
+        <br>
+        <p>Site created by Siming Chen chen.siming@doversherborn.org</p>
+    </div>
+</body>
+</html>

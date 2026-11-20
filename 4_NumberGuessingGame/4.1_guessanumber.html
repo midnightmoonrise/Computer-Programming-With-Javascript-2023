@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+	<title>Guess My Number!</title>
+	<link rel="stylesheet" href="4.1_guessnumberstyles.css">
+	<script>
+		var amountOfGuesses=0;
+		var theNumber = Math.floor(Math.random() * 100) + 1;
+		function guesscounter () {
+			var numberofguesses = document.getElementById("numberofguesses")
+			amountOfGuesses=amountOfGuesses + 1;
+			numberofguesses.value="You have used " + amountOfGuesses + " guesses.";
+		}
+		function checkguess() {
+			var guess = document.getElementById("guess");
+			var guessValue = guess.value
+			var output = document.getElementById("output");
+			if (guessValue < theNumber) {
+				if (guessValue == 0){
+					output.value="This is the number of brain cells you have.";
+					guess.value=""
+					guesscounter();
+				}
+				else if (guessValue <1) {
+					output.value="Do you have negative braincells?!";
+					guess.value=""
+					guesscounter();
+				}
+				else {
+					output.value = "Guess higher!";
+					guess.value=""
+					guesscounter();
+				}
+			} 
+			else if (guessValue== theNumber) {
+				guesscounter();
+				output.value = "Congrats! You guessed the number!";
+			}
+			else if (guessValue > theNumber) {
+				if (guessValue > 100) {
+					guesscounter();
+					guess.value=""
+					output.value = "Dude, can you read directions?"
+				}
+				else {
+					guesscounter();
+					guess.value=""
+					output.value = "Guess lower!";
+				}
+			}
+			else {
+				guess.value=""
+				output.value = "User cancelled the prompt.";
+			}
+		}
+		function generateNewNumber() {
+			//which doesn't work
+			var theNumber = Math.floor(Math.random() * 100) + 1;
+			output.value="A new number has been generated.";
+			amountOfGuesses=0
+			guess.value="";
+			numberofguesses.value="";
+		}
+	</script>
+</head>
+<body>
+	<h1>Guess the Number!</h1>
+			<p>I am thinking of a number between 1 and 100. Can you guess?</p>
+	<form>
+	<p>Enter a number between 1 and 100:</p>
+	<input id="guess" type="text" size="10"><br>
+	<input type="button" value="Guess" onclick="checkguess()"><br>
+	<input id="output" type="text" size="60"><br>
+	<input id="numberofguesses" type="text" size="60"><br>
+	<input type="button" value="Generate a New Number" onclick="generateNewNumber()"><br>
+	</form>
+</body>
+</html>
+
+	
+	

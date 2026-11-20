@@ -1,0 +1,37 @@
+<html>
+      <head>
+	 <title>Login</title>
+		<h1>Login Info</h1>
+		<p>You are trying to login to this page</p>
+     </head> 
+<body>
+    <button onclick="Login()">Click here to log in.</button>
+      <script>
+        function Login() {
+          var enteredUsername = prompt("Who are you?", "");
+   	 	    if (enteredUsername == "Admin") {
+	 		    var enteredPassword = prompt("Please enter your password", "");
+                if (enteredPassword == "Password") {
+                    alert('Congratulations! You have logged in.');
+                }
+                else if (enteredPassword != null || enteredPassword !="") {
+                    alert("I don't know you.");
+                }
+                else {
+                    alert("User cancelled the prompt.");
+                }
+            }
+            else {
+                if (enteredUsername != null || enteredUsername != "") {
+                    alert("I don't know you.");
+                }
+                else {
+                    alert("User cancelled the prompt.");
+                }
+            }
+ 	 	}
+        </script>
+
+     </form>
+</body>
+</html>

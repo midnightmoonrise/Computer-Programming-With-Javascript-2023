@@ -1,0 +1,149 @@
+<html>
+<head>
+    <title>Tic-Tac-Toe Game</title>
+    <style>
+        body {
+            background-color:#F4E4BA;
+            text-align:center;
+        }
+        table {
+            margin-left:auto;
+            margin-right:auto;
+            border:#D66BA0 5px solid;
+        }
+        td {
+            border:#D66BA0 2px solid;
+            width:40px;
+            height:40px;
+            text-align:center;
+            background-color:#E5A9A9;
+            font-size:20px;
+            font-weight:bold;
+            font-family:Bradley Hand;
+            color:white;
+        }
+        button {
+            background-color: #D66BA0;
+            border: 5px solid #AF4D98;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family:futura;
+            font-size:20px;
+        }
+        div#message {
+            width:300px; 
+            height:25px; 
+            border:5px solid #D66BA0;
+            font-size:20px;
+            background-color:#E5A9A9;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        div#header {
+            margin-left:auto;
+            margin-right:auto;
+            color:white;
+            background-color:#D66BA0;
+            border: 5px solid #AF4D98;
+            height:100px;
+        }
+    </style>
+    <script>
+        function setMessage(msg) {
+            document.getElementById("message").innerText = msg;
+        }
+        function startGame() {
+            for (var i = 1; i<=9; i=i+1) {
+                clearBox(i);
+            }
+            document.turn = "X";
+            if (Math.random() < 0.5) {
+                document.turn = "O"
+            }
+            document.winner = null;
+            setMessage(document.turn + " gets to start.");
+        }
+        function nextMove(cell) {
+            if (document.winner != null) {
+                setMessage(document.winner + " already won the game.");
+            }
+            else if (cell.innerText == "") {
+                cell.innerText = document.turn;
+                switchTurn();
+            } else {
+                setMessage("That square is already used.");
+            }
+            
+        }
+        function switchTurn() {
+            if (checkForWinner(document.turn)) {
+                setMessage("Congrats, " + document.turn + " has won!");
+                document.winner = document.turn;
+            } else if (document.turn == "X") {
+                document.turn = "O";
+                setMessage("It's " + document.turn + "'s turn.");
+            } else {
+                document.turn = "X";
+                setMessage("It's " + document.turn + "'s turn.");
+            }
+        }
+        function checkRow(a, b, c, move) {
+            var result = false;
+            if (getBox(a) == move && getBox(b) == move && getBox(c) == move) {
+                result = true;
+            }
+            return result;
+
+        }
+        function getBox(number) {
+            return document.getElementById("s" + number).innerText;
+        }
+        function checkForWinner(move) {
+            var result = false;
+            if (checkRow(1, 2, 3, move) || 
+                checkRow(4, 5, 6, move) || 
+                checkRow(7, 8, 9, move) ||
+                checkRow(1, 4, 7, move) ||
+                checkRow(2, 5, 8, move) ||
+                checkRow(3, 6, 9, move) || 
+                checkRow(1, 5, 9, move) ||
+                checkRow(3, 5, 7, move)) {
+                    result = true;
+            }
+            return result;
+        }
+        function clearBox(number) {
+            document.getElementById("s" + number).innerText = "";
+        }
+    </script>
+</head>
+<body onload="startGame();">
+    <div id="header"><h1 style="font-family:futura">Tic-Tac-Toe Game</h1></div>
+    <br>
+    <div id="message" style="font-family:Bradley Hand; color:white">Messages go here.</div>
+    <br>
+    <table Border="1px solid">
+        <tr>
+            <td id="s1" onclick="nextMove(this);"></td>
+            <td id="s2" onclick="nextMove(this);"></td>
+            <td id="s3" onclick="nextMove(this);"></td>
+        </tr>
+        <tr>
+            <td id="s4" onclick="nextMove(this);"></td>
+            <td id="s5" onclick="nextMove(this);"></td>
+            <td id="s6" onclick="nextMove(this);"></td>
+        </tr>
+        <tr>
+            <td id="s7" onclick="nextMove(this);"></td>
+            <td id="s8" onclick="nextMove(this);"></td>
+            <td id="s9" onclick="nextMove(this);"></td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="startGame();">Clear the board and start over.</button>
+    <br>
+</body>
+</html>

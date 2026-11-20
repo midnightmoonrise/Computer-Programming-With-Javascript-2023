@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memory Concentration Game</title>
+    <style>
+    body {
+        background-color:#ebf1ff;
+    }
+    div#memory_board{
+        background:#b6cdf7;
+        border:#222948 5px solid;
+        width:800px;
+        height:540px;
+        padding:24px;
+        margin:0px auto;
+    }
+    div#header{
+        background:#222948;
+        font-family:Bradley Hand;
+        color:#ebf1ff;
+        height:100px;
+        text-align: center;
+        padding:20px auto;
+        font-size:40px;
+    }
+    .centeredtext{
+        padding:20px 0;
+    }
+    div#memory_board > div{
+        background: url(tile_bg.jpg) no-repeat;
+        background-color:#ebf1ff;
+        border:#222948 1px solid; 
+        width:71px;
+        height:71px;
+        float:left;
+        margin:10px;
+        padding:20px;
+        font-size:64px;
+        cursor:pointer;
+        text-align:center;
+    }
+    .fit {
+        width:71px;
+        height:71px;
+    }
+    </style>
+    <script>
+        var memory_array = ['Wachusett.jpg', 'Wachusett.jpg', 'BerkshireEast.jpg', 'BerkshireEast.jpg','JiminyPeak.jpeg','JiminyPeak.jpeg','SundayRiver.jpeg','SundayRiver.jpeg','waterville.png','waterville.png','Cannon.jpeg','Cannon.jpeg','MadRiverGlen.jpg','MadRiverGlen.jpg','Okemo.jpeg','Okemo.jpeg','PatsPeak.jpeg','PatsPeak.jpeg','JayPeak.jpg','JayPeak.jpg','Killington.webp','Killington.webp','Loon.jpeg','Loon.jpeg'];
+        var memory_values = [];
+        var memory_tile_ids = [];
+        var tiles_flipped = 0;
+        Array.prototype.memory_tile_shuffle = function(){
+            var i = this.length, j, temp;
+            while (--i > 0) {
+                j = Math.floor(Math.random() * (i+1));
+                temp = this[j];
+                this [j] = this [i];
+                this [i] = temp;
+            }
+        } 
+        function newBoard() {
+            tiles_flipped = 0;
+            var output='';
+            memory_array.memory_tile_shuffle();
+            for(var i = 0; i < memory_array.length; i++){
+		         output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\'<img class=fit src='+memory_array[i]+'>\')"></div>';
+	        }
+            document.getElementById('memory_board').innerHTML=output;
+        }
+        function memoryFlipTile(tile, val){
+            if(tile.innerHTML == "" && memory_values.length < 2) {
+                tile.style.background = "#FFF";
+                tile.innerHTML = val;
+                if(memory_values.length == 0){
+                    memory_values.push(val);
+                    memory_tile_ids.push(tile.id);
+                } else if(memory_values.length == 1){
+                    memory_values.push(val);
+                    memory_tile_ids.push(tile.id);
+                    if(memory_values[0] == memory_values[1]){
+                        tiles_flipped += 2;
+                        //clear both arrays
+                        memory_values = [];
+                        memory_tile_ids = [];
+                        //check to see if the board is cleared
+                        if(tiles_flipped == memory_array.length){
+                            alert("Congrats! You cleared the board.");
+                            document.getElementById('memory_board').innerHTML = "";
+                            newBoard();
+                        }
+                    } else {
+                        function flip2Back() {
+                            //Flip the 2 tiles back over if they don't match
+                            var tile_1 = document.getElementById(memory_tile_ids[0]);
+                            var tile_2 = document.getElementById(memory_tile_ids [1]);
+                            tile_1.style.background = 'url(tile_bg.jpg) no-repeat';
+                            tile_1.innerHTML = "";
+                            tile_2.style.background = 'url(tile_bg.jpg) no-repeat';
+                            tile_2.innerHTML = "";
+                            //Clear both arrays
+                            memory_values = [];
+                            memory_tile_ids = [];
+                        }
+                        setTimeout(flip2Back, 700);
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="header" style="text-align:center">Memory Concentration Game</div>
+    <br>
+    <div id="memory_board"></div>
+    <script> newBoard();</script>
+</body>
+</html>

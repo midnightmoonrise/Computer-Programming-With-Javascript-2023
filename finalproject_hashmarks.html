@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+<script>
+    const hashmarksArray = [];
+
+    function hashmarks(number) {
+        for (let i=0; i<number; i++) {
+            hashmarksArray.push("#");
+        }
+    }
+    function getInput() {
+        userInput = prompt("Enter a number between 1 to 8, inclusive.");
+        if (userInput <= 8 && userInput >= 1) {
+            hashmarks(userInput);
+            alert(hashmarksArray);
+            for (let i=0; i<hashmarksArray.length; i++) {
+                hashmarksArray.pop();
+            }
+        }
+        else {
+            alert("Please enter a number between 1 and 8, inclusive.");
+        }
+    }
+</script>
+</head>
+<body>
+<h1>Row of Hashmarks</h1>
+<p>Click the button to generate a row of 1-8 hashmarks based on which number you enter.</p>
+<button onclick="getInput()">Click me to begin!</button>
+</body>

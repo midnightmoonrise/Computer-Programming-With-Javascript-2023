@@ -1,0 +1,30 @@
+<html>
+    <!-- MAKE MOVE RIGHT MOVE RIGHT AGAIN IT CURRENTLY MOVES LEFT-->
+   <head>
+      <title>JavaScript Animation</title>
+      <script>
+         var imgObj = null;
+            
+         function init(){
+               imgObj = document.getElementById('myImage');
+               imgObj.style.position= 'relative'; 
+               imgObj.style.right = '0px'; 
+            } 
+          function moveLeft(){
+           imgObj.style.right = parseInt(imgObj.style.right) + 10 +'px';
+            }
+          function moveRight(){
+           imgObj.style.right = parseInt(imgObj.style.right) - 10 +'px';
+            }
+        window.onload =init;
+      </script>
+   </head>
+   <body>
+     <form>
+       <img style="width:500px" id="myImage" alt=FISH src="myfish.jpg" />
+       <br>
+       <input type="button" value="Move Left" onclick="moveLeft();" />
+       <input type="button" value="Move Right" onclick="moveRight();" />
+     </form>
+    </body>
+   </html>

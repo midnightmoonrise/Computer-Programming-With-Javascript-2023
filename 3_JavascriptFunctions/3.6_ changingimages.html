@@ -1,0 +1,29 @@
+<html>
+<head>
+<title> Image Changing</title>
+<script>
+function changecolor(code) { 	
+document.bgColor=code
+}
+function changeImage() {
+   var image = document.getElementById('myImage');
+   if (image.src.match("giraffeintheforbiddencity.png")) {
+       image.src = "https://cdn.britannica.com/55/75855-050-3D52AB80/giraffe-Kenya.jpg";
+       changecolor('#b88542')
+   } else {
+       image.src = "giraffeintheforbiddencity.png";
+       changecolor('#ce342f')
+   }
+}
+</script>
+</head>
+<body style="text-align: center">
+<h1 style="font-family:Baskerville">The Magical Flying Giraffe</h1>
+<script>
+    document.bgColor='#b88542'
+</script>
+<img id="myImage" onclick="changeImage()" src="https://cdn.britannica.com/55/75855-050-3D52AB80/giraffe-Kenya.jpg" style="height: 500px">
+<p style="font-family:Baskerville">Click to transport the giraffe to a different environment. Yes, this is a reference to history class.</p>
+
+</body>
+</html>

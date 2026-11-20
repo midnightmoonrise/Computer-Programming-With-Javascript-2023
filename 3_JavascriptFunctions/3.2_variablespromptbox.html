@@ -1,0 +1,32 @@
+<html>
+<body>
+	<style>
+		body {
+			background-color: lightskyblue
+		}
+		button {
+			background-color: steelblue;
+			color: white;
+			padding: 12px 28px;
+			text-align: center;
+			text-decoration:dashed;
+			font-size: 20px;
+			font-family: optima;
+		}
+		p {
+			font-family: optima;
+		}
+	</style>
+<p>Click the button to demonstrate the prompt box.</p>
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+	 var person = prompt("Please enter your name", "");
+   	 	if (person != null, person!="") {
+	 		document.getElementById("demo").innerHTML = "Hello " + person + "! How are you today?";
+ 	 	}
+}
+</script>
+</body>
+</html>

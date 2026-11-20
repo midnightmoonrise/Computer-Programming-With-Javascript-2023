@@ -1,0 +1,39 @@
+body {
+    background-color: #a9ce91;
+    text-align: center
+}
+img {
+    border:10px solid #60834b;
+}
+input[type=button] {
+    background-color: #60834b;
+    border: none;
+    color: #243817;
+    padding: 12px 28px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family:futura;
+    font-size:20px;
+  }
+
+  input[type=text] {
+    background-color: #d0ecbf;
+    text-align: center;
+    font-family:Courier;
+    font-size: 12pt;
+    color: #243817;
+    height: 20px
+  }
+
+p {
+    font-family:Courier;
+    color: #243817;
+}
+
+h1 {
+    font-family:Futura;
+    height: 60px;
+    color: #243817;
+    background-color:#60834b
+}

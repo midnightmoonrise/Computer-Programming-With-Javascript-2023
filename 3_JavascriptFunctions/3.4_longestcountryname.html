@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Find The Longest Country Name</title>
+<style>
+   body {
+      background-color:#244e72
+   }
+   p {
+      color:#ffffff;
+      font-family: baskerville;
+   }
+   button {
+        background-color: #96b2c8;
+        color: white;
+        padding: 12px 28px;
+        text-align: center;
+        text-decoration:dashed;
+        font-size: 20px;
+        font-family: baskerville;
+    }
+    img {
+      border: 10px solid #baccda;
+    }
+
+    h2{
+      color: white; 
+      font-family:Didot;
+    }
+   
+   li {
+      color:white;
+      font-family: Baskerville
+   }
+   div.container {
+  text-align: center;
+}
+
+ul.myUL {
+  display: inline-block;
+  text-align: left;
+}
+</style>
+<script>
+function wrong()
+{alert('Incorrect!');}
+</script>
+</head>
+<body style="text-align: center">
+
+<script type="text/javascript">
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+alert('Correct!');
+    }
+//-->
+</script>
+<p><h2>Click on the Country with the Longest Name!</h2></p>
+
+<p><button onclick="wrong()">Luxembourg</button></p>
+<p><button onclick="wrong()">Kazakhstan</button></p>
+<p><button onclick="wrong()">Andorra</button></p>
+<p><button onclick="toggle_visibility('two');">Switzerland</button></p>
+
+<div id="two" style="display:none;">
+<h2>Switzerland</h2>
+<img src="https://www.nationsonline.org/gallery/Switzerland/Sunrise-on-the-Matterhorn.jpg" style="width:1000px">
+<br>
+<p style="margin-left: 50px; margin-right: 50px">Switzerland (official name Swiss Confederation) is a country in Europe bordering Italy, France, Germany, Austria, and Liechtenstein. It has a policy of armed neutrality and hasn't fought in a world war since 1815. The capital is Bern, and its largest city is Bern.</p>
+<br>
+<h4 style="font-family:Didot;color: white">Landmarks</h3>
+<div class="container">
+   <ul class="myUL"> 
+      <li>Chillon Castle</li>
+      <li>Rhine Falls</li>
+      <li>Chapel Bridge</li>
+   </ul>
+</div>
+<a href="https://www.worldtravelguide.net/guides/europe/switzerland/" target="_blank" style="color:#baccda; font-family: Baskerville">Tourist Information</a>
+</p>
+
+</div>
+
+
+</body>
+</html>

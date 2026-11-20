@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Change Color</title>
+<h1>Rainbow Page</h1>
+<script>
+function changecolor(code) 
+{ 	
+document.bgColor=code
+}
+function changecolor(code) 
+{ 	
+document.bgColor=code
+}
+</script>
+</head>
+
+<body>
+    <h1>Date and Time </h1>
+	<p>Click the button to display the date.</p>
+	<button onclick="displayDate()">The date and time is?</button>
+<script>
+function displayDate() {
+document.getElementById("demo").innerHTML = Date();
+}
+</script>
+<p id="demo"></p>
+<p>click a button to change the page color!</p>
+<form>
+<input type="button" name="Button1" value="gray-blue" onclick="changecolor('#5985aa')">
+<input type="button" name="Button2" value="light green" onclick="changecolor('#9ac694')">
+<input type="button" name="Button3" value="bright orange-yellow" onclick="changecolor('#fba356')">
+<input type="button" name="Button4" value="white" onclick="changecolor('white')">
+</form>
+</body>
+</html>

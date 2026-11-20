@@ -1,0 +1,81 @@
+<head>
+<title>Word Guessing Game</title>
+<link rel="stylesheet" href="10.1_wordguessing_css.css">
+<link href='https://fonts.googleapis.com/css?family=Space Mono' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Nanum Pen Script' rel='stylesheet'>
+<script>
+    const words_array = ["stars", "stronghold", "sacriligeous", "barrier", "haunting", "mossy", "influence", "bright", "breeze", "neon", "shadows", "sunlight", "swirl", "lightning", "slate", "Raina", "incompetent", "blue", "heart", "rose", "nature", "gradient", "magenta", "halo", "supernova"]; 
+    var gameWord = words_array[Math.floor(Math.random() * words_array.length)];
+    const gameWordArray = [];
+    const guessedLetters = [];
+    var letterCount = gameWord.length;
+    var lettersLeft = gameWord.length;
+    var guessesLeft = 10;
+    var lettersReplaced = 0;
+    for (let i = 0; i < (letterCount); i++) {
+        gameWordArray.push("_");
+    }
+    
+    function checkGuess() {
+        document.getElementById("wordDisplay").innerText = gameWordArray;
+        if (lettersLeft != 0 && guessesLeft > 0) {
+            var userGuess = document.getElementById("guess").value;
+            if (userGuess.length == 1 && userGuess != "") {
+                for (let i = 0; i < (letterCount); i++) {
+                    if (userGuess == gameWord[i]) {
+                        gameWordArray[i] = userGuess;
+                        lettersLeft --;
+                        document.getElementById("output").innerText = "Nice! Guess again.";
+                        lettersReplaced ++;
+                        if (lettersLeft == 0) {
+                            document.getElementById("output").innerText = "Congrats! You guessed the word.";
+                        }
+                    }
+                }
+
+                if (lettersReplaced == 0) {
+                    guessesLeft --;
+                    document.getElementById("output").innerText = "Too bad, so sad, guess again.";
+                    document.getElementById("wordDisplay").innerText = gameWordArray;
+                    document.getElementById("guessesLeftBox").innerText = "You have " + guessesLeft + " guesses left.";
+                    guessedLetters.push(userGuess);
+                    document.getElementById("listOfGuessed").innerText = guessedLetters;
+                    if (guessesLeft == 0) {
+                        document.getElementById("output").innerText = "Sorry, you ran out of guesses. The word was " + gameWord + "."
+                    }
+                }
+                else {
+                    lettersReplaced = 0;
+                    document.getElementById("wordDisplay").innerText = gameWordArray;
+                    guessedLetters.push(userGuess);
+                    document.getElementById("listOfGuessed").innerText = guessedLetters;
+                    document.getElementById("guessesLeftBox").innerText = "You have " + guessesLeft + " guesses left.";
+                }
+            }
+            else {
+                document.getElementById("wordDisplay").innerText = gameWordArray;
+                document.getElementById("output").innerText = "Check for typos; invalid input.";
+                document.getElementById("guessesLeftBox").innerText = "You have " + guessesLeft + " guesses left.";
+            }
+        }
+        else if (lettersLeft == 0) {
+            document.getElementById("output").innerText = "You already guesssed the word.";
+        }
+        else {
+            document.getElementById("output").innerText = "You ran out of guesses, sorry.";
+        }
+    }
+</script>
+</head>
+<body>
+    <h1 class="header">Word Guessing Game</h1>
+    <div class="instructionsBox"><p>Guess the word! You have up to 10 wrong guesses. I was too lazy to write a program to check for letters, so if you type a special character by accident, good luck.</p></div><br>
+    <div class = "inputOutputBox">
+        <p id = "wordDisplay" class = "computerOutput"></p>
+        <p id = "output" class = "computerOutput"></p>
+        <p id = "guessesLeftBox" class = "computerOutput"></p>
+        <input id="guess" type="text" size="10"><br>
+        <input type="button" id="guessButton" value="Guess" onclick="checkGuess()" class="nicebutton"><br>
+        <p id = "listOfGuessed" class = "computerOutput"></p>
+    </div>
+</body>

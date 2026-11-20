@@ -1,0 +1,85 @@
+body {
+    background-image: linear-gradient(#e8f0f7, #d2e6ed);
+    font-family: Comic Neue;
+    margin-left:50px;
+    margin-right:50px;
+}
+.tableimage {
+    height:200px;
+    border:3px solid #092837;
+}
+
+.greatimage {
+    height:300px;
+    border: 3px solid #092837;
+}
+.header {
+    text-align:center;
+    padding: 8px 28px;
+    height:70px;
+    background-color:#092837;
+}
+
+.table {
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.nicebutton {
+    background-color: #acc9e9;
+    border: 5px solid #092837;
+    color: #092837;
+    padding: 8px 28px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family:Optima;
+    font-size:20px;
+}
+.container {
+    text-align: center;
+}
+  
+ul.list {
+    display: inline-block;
+    text-align: left;
+}
+body {
+    text-align:center;
+}
+
+.buttonlink:link {
+    text-decoration: none;
+}
+.buttonlink:visited {
+    text-decoration: none;
+}
+.buttonlink:hover {
+    text-decoration: none;
+}
+.buttonlink:active {
+    text-decoration: none;
+}
+.buttonlink {
+    color:#133349;
+}
+.footer {
+    left: 0;
+    height:75px;
+    bottom: 0;
+    width: 100%;
+    background-color: #092837;
+    color: white;
+    text-align: center;
+  }
+
+.formbox {
+    margin-left:auto;
+    margin-right:auto;
+    width:500px;
+    text-align:center;
+    background-color:#e8f0f7;
+    border: 3px solid #3a5674;
+    padding: 8px 28px;
+}

@@ -1,0 +1,49 @@
+/*the color palette is #80ED99 #57CC99 #38A3A5 #22577A*/
+body {
+    background-color:#C7F9CC;
+    font-family:optima;
+    color:#133349
+    
+}
+.header {
+    background-color:#38A3A5;
+    border:5px solid;
+    border-color:#22577A;
+    text-align:center;
+    height:60px;
+    font-family:Palatino;
+    color:#133349
+}
+.questions {
+    background-color:#57CC99;
+    height:30px;
+    width:1400px;
+    border:2px solid;
+    border-color:#38A3A5;
+    font-weight:bold;
+    font-family:Palatino;
+}
+
+input[type="submit"] {
+    background-color: #38A3A5;
+    border: 5px solid #22577A;
+    color: #133349;
+    padding: 8px 28px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family:Palatino;
+    font-size:20px;
+    font-weight:bold;
+}
+input [type=text] {
+    border:2px solid #38A3A5;
+    color: #133349;
+    font-family: Optima;
+    font-size: 12pt;
+}
+select {
+    font-family: Optima;
+    border: 2px solid #38A3A5;
+    font-size:12pt;
+}
